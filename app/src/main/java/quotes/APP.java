@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Random;
 
 
 public class APP {
@@ -19,10 +20,11 @@ public class APP {
         List<Books> myBooks = new Gson().fromJson( reader , collectionType);
 
 //        generate a random number inside the list size:
-        int randomNum = (int) (Math.random() * ((myBooks.size()) + 1));
+        Random random = new Random();
+        int randomNum = random.nextInt((myBooks.size() - 1) + 1);
 
 //        print results:
-        System.out.println("Book Name: "+ myBooks.get(randomNum).getAuthor());
+        System.out.println("Book Author: "+ myBooks.get(randomNum).getAuthor());
         System.out.println("Book Quote: " +myBooks.get(randomNum).getText());
     }
 }
