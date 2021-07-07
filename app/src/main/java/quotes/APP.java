@@ -2,17 +2,15 @@ package quotes;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class APP {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
 
 //        JSON file:
 
@@ -48,9 +46,19 @@ public class APP {
 
 //        printing API  data:
 
+            String newAuthor = myQuote.getQuoteAuthor();
+            String newQuote = myQuote.getQuoteText();
             System.out.println("Results from API: ");
-            System.out.println("Book Author: " + myQuote.getQuoteAuthor());
-            System.out.println("Book Quote: " + myQuote.getQuoteText());
+            System.out.println("Book Author: " + newAuthor);
+            System.out.println("Book Quote: " + newQuote);
+
+
+//            Adding a new quote from the API to JSON file:
+
+            Books user = new Books(newAuthor, newQuote);
+            Writer writer = new FileWriter("D:\\JAVA\\labs\\quotes\\app\\src\\main\\java\\quotes\\recentqoutes.json",true);
+            gson.toJson(user, writer);
+            writer.close();
         }
 
         else {
@@ -63,3 +71,4 @@ public class APP {
     }
 
 }
+

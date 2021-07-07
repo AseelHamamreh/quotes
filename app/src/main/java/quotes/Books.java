@@ -28,4 +28,11 @@ public class Books {
     }
 
 
+    @Override
+    public String toString() {
+        return "Books{" +
+                "author='" + author + '\'' +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }
