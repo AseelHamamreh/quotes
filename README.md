@@ -5,3 +5,21 @@ In this lab I used a json file to generate random popular book quotes. a *Books*
 # Lab: 09 - Web requests:
 
 In this lab I garbed quotes from an API and display them to the user, if an error happened to get the data from the API like connection problem; the data from previous JSON file will be displayed. 
+
+
+## To run this code:
+
+clone repo by the following command: 
+
+```git clone https://github.com/AseelHamamreh/quotes```
+
+
+add the gson library to your gradle.build file:
+
+```
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.7'
+}
+```
+
+run the code from Intellij or your terminal
